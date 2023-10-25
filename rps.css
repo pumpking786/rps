@@ -1,0 +1,19 @@
+*{
+    text-align: center;
+}
+h1{
+    margin-top: 120px;
+}
+button{
+    margin: 15px;
+}
+button img{
+    width: 100px;
+}
+p{
+    font-size: larger;
+}
+.js-result{
+    font-size: 50px;
+    font-weight: bold;
+}
