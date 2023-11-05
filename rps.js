@@ -14,6 +14,28 @@ let score=JSON.parse(localStorage.getItem('score'))||
     //         }; 
     //     }
     // }
+    let isAutoPlaying= false;
+    let interValid;
+    function autoPlay(){
+        if(!isAutoPlaying){
+            interValid=setInterval(()=>{
+                const playerMove = pickComputerMove();
+                playGame(playerMove);
+            },1000);
+            isAutoPlaying=true;
+        }else{
+            clearInterval(interValid);
+            isAutoPlaying=false;
+        }
+    }
+    function pause(){
+        const buttonElement = document.querySelector('.auto-play-button');
+        if(buttonElement.innerHTML===`<img src="https://play-lh.googleusercontent.com/n_t-GAERnlvPvtMyB9JnkXBbMMtdfoEmwPWeFqkvd84FaXfRRFouWeGgrFxk1jcnJfM" alt="">`){
+            buttonElement.innerHTML="<img src='https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2022-02/pause.png?itok=62F6E_KY' alt=''>";
+        }else{
+            buttonElement.innerHTML="<img src='https://play-lh.googleusercontent.com/n_t-GAERnlvPvtMyB9JnkXBbMMtdfoEmwPWeFqkvd84FaXfRRFouWeGgrFxk1jcnJfM' alt=''>";
+        }
+    }
     function playGame(playerMove){
         const computerMove = pickComputerMove();
             let result='';
